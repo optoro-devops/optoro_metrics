@@ -10,7 +10,7 @@ Installs sensu metrics package and sets up metric cron jobs
 
 ## Cookbooks:
 
-*No dependencies defined*
+* optoro_logstash
 
 # Attributes
 

@@ -4,14 +4,16 @@ maintainer_email 'devops@optoro.com'
 license 'MIT'
 description 'Installs sensu metrics package and sets up metric cron jobs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.1'
+version '0.0.2'
 
 supports 'ubuntu', '= 14.04'
 
 depends 'optoro_logstash'
+depends 'nginx'
 
 provides 'optoro_metrics::default'
 provides 'optoro_metrics::system'
 
 recipe 'optoro_metrics::default', 'Installs metric scripts'
 recipe 'optoro_metrics::system', 'Setups system metric collection'
+recipe 'optoro_metrics::nginx', 'Setups nginx to output metrics and colects them'

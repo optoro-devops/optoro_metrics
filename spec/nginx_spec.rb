@@ -9,10 +9,6 @@ describe 'optoro_metrics::nginx' do
             node.set['lsb']['codename'] = value['codename']
           end.converge(described_recipe)
         end
-
-        it 'Includes optoro_metrics::default' do
-          expect(chef_run).to include_recipe('optoro_metrics::default')
-        end
       end
     end
   end

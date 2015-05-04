@@ -22,6 +22,7 @@ Installs sensu metrics package and sets up metric cron jobs
 * [optoro_metrics::default](#optoro_metricsdefault) - Installs metric scripts
 * [optoro_metrics::system](#optoro_metricssystem) - Setups system metric collection
 * [optoro_metrics::nginx](#optoro_metricsnginx) - Setups nginx to output metrics and collects them
+* [optoro_metrics::mysql](#optoro_metricsmysql) - Sets up mysql cron job to collect metrics
 
 ## optoro_metrics::default
 
@@ -34,6 +35,10 @@ Installs cron jobs to collect system metrics
 ## optoro_metrics::nginx
 
 Installs cron job to poll nginx status page
+
+## optoro_metrics::mysql
+
+Installs cron job and mysql account to poll mysql
 
 # License and Maintainer
 

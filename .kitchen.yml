@@ -32,3 +32,11 @@ suites:
   attributes:
     optoro:
       aptly_url: 'aptly.optoro.io'
+- name: mysql
+  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
+  run_list:
+    - recipe[optoro_aptly::repos]
+    - recipe[optoro_metrics::mysql]
+  attributes:
+    optoro:
+      aptly_url: 'aptly.optoro.io'

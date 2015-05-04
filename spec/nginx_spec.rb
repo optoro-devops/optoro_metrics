@@ -9,6 +9,11 @@ describe 'optoro_metrics::nginx' do
             node.set['lsb']['codename'] = value['codename']
           end.converge(described_recipe)
         end
+
+        it 'Installs cronjob for nginx/nginx-metrics.rb' do
+          expect(chef_run).to create_cron('poll_nginx-metrics.rb').with(user: 'root', minute: '*', hour: '*', day: '*')
+        end
+
       end
     end
   end

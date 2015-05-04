@@ -2,17 +2,17 @@
 # Installs cron job and mysql account to poll mysql
 #>
 
+sensu = Chef::EncryptedDataBagItem.load('passwords', 'mysql')['sensu']
+
 template '/root/.mysql.sensu.ini' do
   action :create
   source 'mysql_ini.erb'
   owner 'root'
   group 'root'
   mode '0600'
-  variables(
-    'user' => 'sensu',
-    'password' => Chef::EncryptedDataBagItem.load('passwords', 'mysql')['sensu']['password']
-  )
+  variables(sensu.to_hash)
   sensitive true
+  only_if { !!sensu }
 end
 
 cron 'poll_mysql-graphite.rb' do

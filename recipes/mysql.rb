@@ -12,7 +12,7 @@ template '/root/.mysql.sensu.ini' do
   mode '0600'
   variables(sensu.to_hash)
   sensitive true
-  only_if { !!sensu }
+  only_if { sensu }
 end
 
 cron 'poll_mysql-graphite.rb' do

@@ -1,0 +1,9 @@
+{
+  "id": "mysql",
+  "sensu": {
+    "encrypted_data": "BwXwJfFNyagOKelAGeQiE/xWH3lid0DdI0yraXFI7Bg4di64PZfqdbvF6hXk\nk1IZ5lU4eX+9wa4h6QuBVNSQN6YvpaeO4h4qFo472/lEkcJ7VC9XC1l05c/x\nGbhN9BQ0JL3C04H7/vkH6oZY11gGpIZ5D2mgw7Bw5VfiskPmSj/WVgsM3q5G\nFBeNQQ9ETzxi1SPROqXTglObaFZ7SpyaVw==\n",
+    "iv": "h9Jtk8/4xFC8XiwJamtU8g==\n",
+    "version": 1,
+    "cipher": "aes-256-cbc"
+  }
+}

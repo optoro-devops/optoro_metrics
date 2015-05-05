@@ -17,7 +17,7 @@ end
 
 cron 'poll_mysql-graphite.rb' do
   action :create
-  command '/opt/logstash/agent/bin/sensu_metrics.sh mysql/mysql-graphite -h 127.0.0.1 -i /root/.mysql.sensu.ini'
+  command '/opt/logstash/agent/bin/sensu_metrics.sh mysql/mysql-graphite.rb -h 127.0.0.1 -i /root/.mysql.sensu.ini'
   user 'root'
   minute '*'
 end

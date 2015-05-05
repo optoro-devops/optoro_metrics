@@ -16,7 +16,7 @@ output_writer = { '@class' => 'com.googlecode.jmxtrans.model.output.GraphiteWrit
                   'settings' => {
                     'port' => 6008,
                     'host' => '127.0.0.1',
-                    'rootPrefix' => "#{node['fqdn']}.kafka"
+                    'rootPrefix' => "#{node['fqdn']}"
                   }
                }
 
@@ -74,7 +74,12 @@ end
 
 package 'jmxtrans'
 
+service 'jmxtrans' do
+  action [:enable,:start]
+end
+
 template '/var/lib/jmxtrans/kafka-metrics.json' do
   source 'kafka-metrics.json.erb'
   variables(:output => output_skel)
+  notifies :restart, 'service[jmxtrans]', :immediately
 end

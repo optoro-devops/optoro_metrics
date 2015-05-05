@@ -1,4 +1,4 @@
-describe 'optoro_metrics::default' do
+describe 'optoro_metrics::kafka' do
   Resources::PLATFORMS.each do |platform, value|
     value['versions'].each do |version|
       context "On #{platform} #{version}" do
@@ -10,13 +10,18 @@ describe 'optoro_metrics::default' do
           end.converge(described_recipe)
         end
 
-        it 'Installs sensu-community-plugins package' do
-          expect(chef_run).to upgrade_package('sensu-community-plugins')
+        it 'Includes optoro_metrics::kafka' do
+          expect(chef_run).to include_recipe('optoro_metrics::kafka')
         end
 
-        it 'Installs sensu-metrics.sh into logstash' do
-          expect(chef_run).to create_cookbook_file('/opt/logstash/agent/bin/sensu_metrics.sh').with(user: 'root', mode: '0755')
+        it 'Installs jmxtrans package' do
+          expect(chef_run).to install_package('jmxtrans')
         end
+
+        it 'Writes out a jmx config file' do
+          expect(chef_run).to render_file('/var/lib/jmxtrans/kafka-metrics.json')
+        end
+
       end
     end
   end

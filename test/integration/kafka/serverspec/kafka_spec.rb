@@ -11,7 +11,6 @@ describe 'optoro_metrics::kafka' do
   end
 
   describe service('jmxtrans') do
-    it { should be_installed }
     it { should be_enabled }
     it { should be_running }
   end

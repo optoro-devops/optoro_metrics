@@ -12,13 +12,12 @@ output_skel = { 'servers' => [{ 'alias' => node['fqdn'],
                                }]
               }
 
-output_writer = { '@class' => 'com.googlecode.jmxtrans.model.output.KeyOutWriter',
-                  'settings' => { 'debug' => true,
-                                  'maxLogBackupFiles' => 200,
-                                  'maxLogFileSize' => '10MB',
-                                  'outputFile' => '/tmp/keyout2.txt',
-                                  'typeNames' => ['name']
-                                }
+output_writer = { '@class' => 'com.googlecode.jmxtrans.model.output.GraphiteWriter',
+                  'settings' => {
+                    'port' => 6008,
+                    'host' => '127.0.0.1',
+                    'rootPrefix' => "#{node['fqdn']}.kafka"
+                  }
                }
 
 query_skel = { 'resultAlias' => '',
@@ -42,7 +41,7 @@ max_min_stddev = %w(Max Mean Min StdDev)
 
 # kafka.server types
 %w(BrokerTopicMetrics DelayedFetchRequestMetrics DelayedProducerRequestMetrics KafkaRequestHandlerPool ReplicaManager).each do |key|
-  mbeans['kafka.server'][key] = fiveTenFifteen
+  mbeans['kafka.server'][key] = five_ten_fifteen
 end
 
 %w(FetchRequestPurgatory KafkaServer OffsetManager ProducerRequestPurgatory ReplicaFetcherManager).each do |key|
@@ -51,7 +50,7 @@ end
 
 # kafka.network types
 mbeans['kafka.network']['RequestChannel'] = ['Value']
-mbeans['kafka.network']['SocketServer'] = fiveTenFifteen
+mbeans['kafka.network']['SocketServer'] = five_ten_fifteen
 
 # kafka.controller types
 mbeans['kafka.controller']['ControllerStats'] = five_ten_fifteen + percentile + max_min_stddev

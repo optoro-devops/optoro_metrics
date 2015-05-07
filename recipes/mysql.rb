@@ -10,7 +10,7 @@ template '/root/.mysql.sensu.ini' do
   owner 'root'
   group 'root'
   mode '0600'
-  variables(sensu.to_hash)
+  variables(sensu)
   sensitive true
   only_if { sensu }
 end

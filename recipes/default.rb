@@ -3,7 +3,7 @@
 #>
 
 package 'sensu-community-plugins' do
-  action :install
+  action :upgrade
 end
 
 cookbook_file 'sensu_metrics.sh' do

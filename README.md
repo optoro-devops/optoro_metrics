@@ -25,6 +25,7 @@ Installs sensu metrics package and sets up metric cron jobs
 * [optoro_metrics::mysql](#optoro_metricsmysql) - Sets up mysql cron job to collect metrics
 * [optoro_metrics::kafka](#optoro_metricskafka) - Setups kafka metric collection
 * [optoro_metrics::memcached](#optoro_metricsmemcached) - Setups memcached metric collection
+* [optoro_metrics::elasticsearch](#optoro_metricselasticsearch) - Setups up elasticsearch metric collection
 
 ## optoro_metrics::default
 
@@ -49,6 +50,10 @@ Installs jmxtrans and configures it to emit metrics to graphite
 ## optoro_metrics::memcached
 
 Installs memcached cron jobs to pull metrics and place into logstash
+
+## optoro_metrics::elasticsearch
+
+Installs elasticsearch cron jobs to pull metrics and place into logstash
 
 # License and Maintainer
 

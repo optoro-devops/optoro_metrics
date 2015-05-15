@@ -26,6 +26,9 @@ Installs sensu metrics package and sets up metric cron jobs
 * [optoro_metrics::kafka](#optoro_metricskafka) - Setups kafka metric collection
 * [optoro_metrics::memcached](#optoro_metricsmemcached) - Setups memcached metric collection
 * [optoro_metrics::elasticsearch](#optoro_metricselasticsearch) - Setups up elasticsearch metric collection
+* [optoro_metrics::redis](#optoro_metricsredis) - Setups up redis metric collection
+* [optoro_metrics::rabbitmq](#optoro_metricsrabbitmq) - Setups up rabbitmq metric collection
+* [optoro_metrics::mongodb](#optoro_metricsmongodb) - Setups up mongodb metric collection
 
 ## optoro_metrics::default
 
@@ -54,6 +57,18 @@ Installs memcached cron jobs to pull metrics and place into logstash
 ## optoro_metrics::elasticsearch
 
 Installs elasticsearch cron jobs to pull metrics and place into logstash
+
+## optoro_metrics::redis
+
+Installs redis cron jobs to pull metrics and place into logstash
+
+## optoro_metrics::rabbitmq
+
+Installs rabbitmq cron jobs to pull metrics and place into logstash
+
+## optoro_metrics::mongodb
+
+Installs mongo cron jobs to pull metrics and place into logstash
 
 # License and Maintainer
 

@@ -25,10 +25,12 @@ Installs sensu metrics package and sets up metric cron jobs
 * [optoro_metrics::mysql](#optoro_metricsmysql) - Sets up mysql cron job to collect metrics
 * [optoro_metrics::kafka](#optoro_metricskafka) - Setups kafka metric collection
 * [optoro_metrics::memcached](#optoro_metricsmemcached) - Setups memcached metric collection
-* [optoro_metrics::elasticsearch](#optoro_metricselasticsearch) - Setups up elasticsearch metric collection
-* [optoro_metrics::redis](#optoro_metricsredis) - Setups up redis metric collection
-* [optoro_metrics::rabbitmq](#optoro_metricsrabbitmq) - Setups up rabbitmq metric collection
-* [optoro_metrics::mongodb](#optoro_metricsmongodb) - Setups up mongodb metric collection
+* [optoro_metrics::elasticsearch](#optoro_metricselasticsearch) - Setups elasticsearch metric collection
+* [optoro_metrics::redis](#optoro_metricsredis) - Setups redis metric collection
+* [optoro_metrics::rabbitmq](#optoro_metricsrabbitmq) - Setups rabbitmq metric collection
+* [optoro_metrics::mongodb](#optoro_metricsmongodb) - Setups mongodb metric collection
+* optoro_metrics::zookeeper - Setups zookeeper metrics collection
+* optoro_metrics::openvpn - Setups openvpn metrics collection
 
 ## optoro_metrics::default
 

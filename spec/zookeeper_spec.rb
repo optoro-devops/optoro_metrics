@@ -1,4 +1,4 @@
-describe 'optoro_metrics::default' do
+describe 'optoro_metrics::zookeeper' do
   Resources::PLATFORMS.each do |platform, value|
     value['versions'].each do |version|
       context "On #{platform} #{version}" do
@@ -10,12 +10,12 @@ describe 'optoro_metrics::default' do
           end.converge(described_recipe)
         end
 
-        it 'Installs sensu-community-plugins package' do
-          expect(chef_run).to upgrade_package('sensu-community-plugins')
+        it 'Installs zookeeper_metrics.rb into logstash' do
+          expect(chef_run).to create_cookbook_file('/opt/logstash/agent/bin/zookeeper_metrics.rb').with(user: 'root', mode: '0755')
         end
 
-        it 'Installs sensu_metrics.sh into logstash' do
-          expect(chef_run).to create_cookbook_file('/opt/logstash/agent/bin/sensu_metrics.sh').with(user: 'root', mode: '0755')
+        it 'Installs cronjob for zookeeper_metrics.rb' do
+          expect(chef_run).to create_cron('poll_zookeeper').with(user: 'root', minute: '*', hour: '*', day: '*')
         end
       end
     end

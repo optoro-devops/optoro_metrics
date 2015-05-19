@@ -100,3 +100,23 @@ suites:
   attributes:
     optoro:
       aptly_url: 'aptly.optoro.io'
+- name: zookeeper
+  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
+  run_list:
+    - recipe[optoro_metrics::test]
+    - recipe[optoro_aptly::repos]
+    - recipe[optoro_logstash::default]
+    - recipe[optoro_metrics::zookeeper]
+  attributes:
+    optoro:
+      aptly_url: 'aptly.optoro.io'
+- name: openvpn
+  encrypted_data_bag_secret_key_path: "test/integration/encrypted_data_bag_secret"
+  run_list:
+    - recipe[optoro_metrics::test]
+    - recipe[optoro_aptly::repos]
+    - recipe[optoro_logstash::default]
+    - recipe[optoro_metrics::openvpn]
+  attributes:
+    optoro:
+      aptly_url: 'aptly.optoro.io'

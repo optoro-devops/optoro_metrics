@@ -14,7 +14,7 @@ describe 'optoro_metrics::system' do
           expect(chef_run).to include_recipe('optoro_metrics::default')
         end
 
-        %w(cpu-metrics.rb disk-capacity-metrics.rb disk-metrics.rb disk-usage-metrics.rb interface-metrics.rb iostat-extended-metrics.rb load-metrics.rb memory-metrics-percent.rb memory-metrics.rb ntpdate-metrics.rb ntpstats-metrics.rb vmstat-metrics.rb).each do |script|
+        %w(cpu-pcnt-usage-metrics.rb cpu-metrics.rb disk-capacity-metrics.rb disk-metrics.rb disk-usage-metrics.rb interface-metrics.rb iostat-extended-metrics.rb load-metrics.rb memory-metrics-percent.rb memory-metrics.rb ntpdate-metrics.rb ntpstats-metrics.rb vmstat-metrics.rb).each do |script|
           it "Installs cronjob for system/#{script}" do
             expect(chef_run).to create_cron("poll_#{script}").with(user: 'root', minute: '*', hour: '*', day: '*')
           end

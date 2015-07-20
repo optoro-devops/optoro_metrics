@@ -1,6 +1,6 @@
 #!/bin/bash
 SENSU_PATH="/opt/sensu-community-plugins"
-NETCAT="/bin/nc -q0 -t 127.0.0.1 6008"
+NETCAT="/bin/nc -q1 -t 127.0.0.1 6008"
 CLEAN_OUTPUT="grep ."
 SENSU_SCRIPT=$1
 

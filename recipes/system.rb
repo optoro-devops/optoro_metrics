@@ -6,7 +6,7 @@ include_recipe 'optoro_metrics::default'
 
 %w(cpu-pcnt-usage-metrics.rb cpu-metrics.rb disk-capacity-metrics.rb disk-metrics.rb disk-usage-metrics.rb interface-metrics.rb iostat-extended-metrics.rb load-metrics.rb memory-metrics-percent.rb memory-metrics.rb ntpdate-metrics.rb ntpstats-metrics.rb vmstat-metrics.rb).each do |script|
   cron "poll_#{script}" do
-    action :create
+    action :delete
     command "/opt/logstash/agent/bin/sensu_metrics.sh system/#{script}"
     user 'root'
     minute '*'
@@ -14,7 +14,7 @@ include_recipe 'optoro_metrics::default'
 end
 
 cron 'poll_netif-metrics.rb' do
-  action :create
+  action :delete
   command '/opt/logstash/agent/bin/sensu_metrics.sh network/netif-metrics.rb'
   user 'root'
   minute '*'

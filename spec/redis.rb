@@ -12,7 +12,7 @@ describe 'optoro_metrics::redis' do
 
         %w(redis-graphite.rb).each do |script|
           it "Installs cronjob for redis/#{script}" do
-            expect(chef_run).to create_cron("poll_#{script}").with(user: 'root', minute: '*', hour: '*', day: '*')
+            expect(chef_run).to delete_cron("poll_#{script}").with(user: 'root', minute: '*', hour: '*', day: '*')
           end
         end
       end

@@ -4,7 +4,7 @@
 
 %w(mongodb-metrics.rb).each do |check|
   cron "poll_#{check}" do
-    action :create
+    action :delete
     command "/opt/logstash/agent/bin/sensu_metrics.sh mongodb/#{check}"
     user 'root'
     minute '*'

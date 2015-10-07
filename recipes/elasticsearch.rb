@@ -4,7 +4,7 @@
 
 %w(es-node-graphite.rb).each do |check|
   cron "poll_#{check}" do
-    action :create
+    action :delete
     command "/opt/logstash/agent/bin/sensu_metrics.sh elasticsearch/#{check}"
     user 'root'
     minute '*'

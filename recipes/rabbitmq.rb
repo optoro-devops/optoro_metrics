@@ -4,7 +4,7 @@
 
 %w(rabbitmq-overview-metrics.rb rabbitmq-queue-metrics.rb).each do |check|
   cron "poll_#{check}" do
-    action :create
+    action :delete
     command "/opt/logstash/agent/bin/sensu_metrics.sh rabbitmq/#{check}"
     user 'root'
     minute '*'

@@ -12,7 +12,7 @@ describe 'optoro_metrics::rabbitmq' do
 
         %w(rabbitmq-overview-metrics.rb rabbitmq-queue-metrics.rb).each do |script|
           it "Installs cronjob for rabbitmq/#{script}" do
-            expect(chef_run).to create_cron("poll_#{script}").with(user: 'root', minute: '*', hour: '*', day: '*')
+            expect(chef_run).to delete_cron("poll_#{script}").with(user: 'root', minute: '*', hour: '*', day: '*')
           end
         end
       end

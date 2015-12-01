@@ -11,11 +11,7 @@ describe 'optoro_metrics::default' do
         end
 
         it 'Installs sensu-community-plugins package' do
-          expect(chef_run).to upgrade_package('sensu-community-plugins')
-        end
-
-        it 'Installs sensu_metrics.sh into logstash' do
-          expect(chef_run).to create_cookbook_file('/opt/logstash/agent/bin/sensu_metrics.sh').with(user: 'root', mode: '0755')
+          expect(chef_run).to remove_package('sensu-community-plugins')
         end
       end
     end

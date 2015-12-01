@@ -4,7 +4,7 @@ maintainer_email 'devops@optoro.com'
 license 'MIT'
 description 'Installs sensu metrics package and sets up metric cron jobs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.0.15'
+version '0.1.0'
 
 supports 'ubuntu', '= 14.04'
 

@@ -5,7 +5,7 @@
 sensu = Chef::EncryptedDataBagItem.load('passwords', 'mysql')['sensu']
 
 template '/root/.mysql.sensu.ini' do
-  action :create
+  action :delete
   source 'mysql_ini.erb'
   owner 'root'
   group 'root'
@@ -16,7 +16,7 @@ template '/root/.mysql.sensu.ini' do
 end
 
 cron 'poll_mysql-graphite.rb' do
-  action :create
+  action :delete
   command '/opt/logstash/agent/bin/sensu_metrics.sh mysql/mysql-graphite.rb -h 127.0.0.1 -i /root/.mysql.sensu.ini'
   user 'root'
   minute '*'

@@ -3,11 +3,11 @@
 #>
 
 package 'sensu-community-plugins' do
-  action :upgrade
+  action :remove
 end
 
 cookbook_file 'sensu_metrics.sh' do
-  action :create
+  action :delete
   path '/opt/logstash/agent/bin/sensu_metrics.sh'
   owner 'root'
   group 'root'

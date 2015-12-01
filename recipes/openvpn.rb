@@ -1,5 +1,5 @@
 cookbook_file 'openvpn_metrics.rb' do
-  action :create
+  action :delete
   path '/opt/logstash/agent/bin/openvpn_metrics.rb'
   owner 'root'
   group 'root'
@@ -7,7 +7,7 @@ cookbook_file 'openvpn_metrics.rb' do
 end
 
 cron 'poll_openvpn' do
-  action :create
+  action :delete
   command '/opt/logstash/agent/bin/openvpn_metrics.rb | /bin/nc -q0 -t 127.0.0.1 6008'
   user 'root'
   minute '*'

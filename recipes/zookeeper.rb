@@ -1,5 +1,5 @@
 cookbook_file 'zookeeper_metrics.rb' do
-  action :create
+  action :delete
   path '/opt/logstash/agent/bin/zookeeper_metrics.rb'
   owner 'root'
   group 'root'
@@ -7,7 +7,7 @@ cookbook_file 'zookeeper_metrics.rb' do
 end
 
 cron 'poll_zookeeper' do
-  action :create
+  action :delete
   command '/opt/logstash/agent/bin/zookeeper_metrics.rb | /bin/nc -q0 -t 127.0.0.1 6008'
   user 'root'
   minute '*'

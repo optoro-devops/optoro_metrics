@@ -10,12 +10,8 @@ describe 'optoro_metrics::mysql' do
           end.converge(described_recipe)
         end
 
-        it 'Create /root/.mysql.sensu.ini' do
-          expect(chef_run).to create_template('/root/.mysql.sensu.ini').with(user: 'root', group: 'root', mode: '0600')
-        end
-
         it 'Installs cronjob for mysql/mysql-graphite.rb' do
-          expect(chef_run).to create_cron('poll_mysql-graphite.rb').with(user: 'root', minute: '*', hour: '*', day: '*')
+          expect(chef_run).to delete_cron('poll_mysql-graphite.rb').with(user: 'root', minute: '*', hour: '*', day: '*')
         end
       end
     end

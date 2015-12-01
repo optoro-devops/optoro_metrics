@@ -11,11 +11,11 @@ describe 'optoro_metrics::zookeeper' do
         end
 
         it 'Installs zookeeper_metrics.rb into logstash' do
-          expect(chef_run).to create_cookbook_file('/opt/logstash/agent/bin/zookeeper_metrics.rb').with(user: 'root', mode: '0755')
+          expect(chef_run).to delete_cookbook_file('/opt/logstash/agent/bin/zookeeper_metrics.rb').with(user: 'root', mode: '0755')
         end
 
         it 'Installs cronjob for zookeeper_metrics.rb' do
-          expect(chef_run).to create_cron('poll_zookeeper').with(user: 'root', minute: '*', hour: '*', day: '*')
+          expect(chef_run).to delete_cron('poll_zookeeper').with(user: 'root', minute: '*', hour: '*', day: '*')
         end
       end
     end

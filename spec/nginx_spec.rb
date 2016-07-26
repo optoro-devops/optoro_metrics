@@ -13,7 +13,6 @@ describe 'optoro_metrics::nginx' do
         it 'Installs cronjob for nginx/nginx-metrics.rb' do
           expect(chef_run).to delete_cron('poll_nginx-metrics.rb').with(user: 'root', minute: '*', hour: '*', day: '*')
         end
-
       end
     end
   end

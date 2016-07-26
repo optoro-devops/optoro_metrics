@@ -21,7 +21,6 @@ describe 'optoro_metrics::kafka' do
         it 'Writes out a jmx config file' do
           expect(chef_run).to render_file('/var/lib/jmxtrans/kafka-metrics.json')
         end
-
       end
     end
   end
